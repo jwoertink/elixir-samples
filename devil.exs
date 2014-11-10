@@ -11,3 +11,11 @@ receive do
   {:rock, msg} -> IO.puts msg #matches tuple. Prints out "your face off"
   {:jazz, msg} -> IO.puts "smooth #{msg}"
 end
+
+#async fail
+spawn fn ->
+  raise "FAIL! but keep on moving"
+end
+
+# bubble error up
+spawn_link fn -> raise "you shall not pass" end
