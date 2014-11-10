@@ -4,6 +4,16 @@ defmodule Car do
     IO.puts "Driving #{direction}"
   end
 
+  def fill_gas_tank(gallons) when gallons >= 15  do
+    IO.puts "gas tank is full"
+  end
+
+  # recursion!
+  def fill_gas_tank(gallons) do
+    IO.puts "Now have #{gallons} gallons"
+    fill_gas_tank(gallons + 1)
+  end
+
   # function head
   def build(make, model \\ nil, year \\ 2014)
 
@@ -19,3 +29,5 @@ end
 
 Car.drive(:north) # Driving north
 Car.drive() # Driving forward
+
+Car.fill_gas_tank(1)
